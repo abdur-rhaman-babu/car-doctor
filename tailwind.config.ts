@@ -58,6 +58,9 @@ export default {
   			sm: 'calc(var(--radius) - 4px)'
   		}
   	},
+	container:{
+		padding:'4rem'
+	}
 	
   },
   plugins: [require("tailwindcss-animate")],

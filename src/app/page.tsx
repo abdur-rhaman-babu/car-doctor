@@ -1,9 +1,10 @@
+import Services from "./components/Services";
 
 
 const Main = () => {
   return (
     <div>
-      <h1>Home</h1>
+     <Services/>
     </div>
   );
 };

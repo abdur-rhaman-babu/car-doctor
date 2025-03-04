@@ -16,12 +16,13 @@ const Navbar = () => {
     { name: 'Home', href: '/' },
     { name: 'Services', href: '/services' },
     { name: 'About', href: '/about' },
-    { name: 'Contact', href: '/contact' },
+    { name: 'Blog', href: '/blog' },
+    { name: 'Contact', href: '/contact' }
   ];
 
   return (
-    <nav className="fixed top-0 left-0 w-full md:backdrop-blur-lg md:bg-white/80 shadow-md z-50 md:px-6 lg:px-16 px-3 py-3">
-      <div className="container mx-auto flex items-center justify-between">
+    <nav className="fixed bg-white top-0 left-0 w-full md:backdrop-blur-lg md:bg-white/80 shadow-md z-50 md:px-6 px-3 py-3">
+      <div className="lg:container mx-auto flex items-center justify-between">
         {/* Logo */}
         <Link href="/" className="flex items-center">
           <Image src={logo} width={50} height={30} alt="Logo" />
