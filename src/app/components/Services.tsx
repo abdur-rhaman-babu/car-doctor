@@ -1,8 +1,8 @@
 import services from "@/data";
-import { Card } from "@/components/ui/card";
 import { ArrowRight } from "lucide-react";
 import Image from "next/image";
 import SectionTitle from "./SectionTitle";
+import { Card } from "@/components/ui/card";
 
 const Services = () => {
   return (
@@ -16,7 +16,7 @@ const Services = () => {
                 src={service.img}
                 alt={service.title}
                 width={500}
-                height={500}
+                height={108}
                 objectFit="cover"
                 className="rounded-lg"
               />
