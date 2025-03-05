@@ -1,16 +1,38 @@
-import services from "@/data";
+
 import { ArrowRight } from "lucide-react";
 import Image from "next/image";
 import SectionTitle from "./SectionTitle";
 import { Card } from "@/components/ui/card";
+import dbConnect from "@/lib/dbConnect";
 
-const Services = () => {
+interface Service {
+  _id: string;
+  service_id: string;
+  title: string;
+  img: string;
+  price: string;
+  description: string;
+  facility: string[];
+}
+
+const getServices = async (): Promise<Service[]> => {
+  const serviceCollection = await dbConnect<Service>("services"); 
+  return await serviceCollection.find({}).toArray(); 
+};
+
+const Services = async () => {
+  const services = await getServices(); 
+
   return (
     <section>
-        <SectionTitle title="Service" subTitle="Our Service Area" description="the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. "/>
+      <SectionTitle
+        title="Service"
+        subTitle="Our Service Area"
+        description="The majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable."
+      />
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 p-3">
         {services.map((service) => (
-          <Card key={service.id} className="flex flex-col p-4 shadow-sm">
+          <Card key={service._id} className="flex flex-col p-4 shadow-sm">
             <div className="mb-4">
               <Image
                 src={service.img}
@@ -20,8 +42,7 @@ const Services = () => {
                 objectFit="cover"
                 className="rounded-lg"
               />
-
-              <h3 className="text-lg font-semibold">{service.title}</h3>
+              <h3 className="text-lg font-semibold mt-2">{service.title}</h3>
             </div>
             <div className="flex items-center justify-between mt-auto">
               <p className="text-primary font-bold">Price: ${service.price}</p>
@@ -35,3 +56,5 @@ const Services = () => {
 };
 
 export default Services;
+
+
