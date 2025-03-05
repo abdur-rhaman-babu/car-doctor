@@ -4,6 +4,10 @@ import { MongoClient, Collection, ServerApiVersion, Document } from "mongodb";
 const uri: string = process.env.MONGODB_URI as string;
 const dbName: string = process.env.DB_NAME as string;
 
+export const collectionNameObj = {
+  servicesCollention: "services"
+}
+
 // Cache the MongoDB client to prevent multiple connections in Next.js
 let cachedClient: MongoClient | null = null;
 

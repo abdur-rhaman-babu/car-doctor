@@ -1,9 +1,9 @@
-
 import { ArrowRight } from "lucide-react";
 import Image from "next/image";
 import SectionTitle from "./SectionTitle";
 import { Card } from "@/components/ui/card";
-import dbConnect from "@/lib/dbConnect";
+import dbConnect, { collectionNameObj } from "@/lib/dbConnect";
+import Link from "next/link";
 
 interface Service {
   _id: string;
@@ -16,12 +16,14 @@ interface Service {
 }
 
 const getServices = async (): Promise<Service[]> => {
-  const serviceCollection = await dbConnect<Service>("services"); 
-  return await serviceCollection.find({}).toArray(); 
+  const serviceCollection = await dbConnect<Service>(
+    collectionNameObj.servicesCollention
+  );
+  return await serviceCollection.find({}).toArray();
 };
 
 const Services = async () => {
-  const services = await getServices(); 
+  const services = await getServices();
 
   return (
     <section>
@@ -46,7 +48,9 @@ const Services = async () => {
             </div>
             <div className="flex items-center justify-between mt-auto">
               <p className="text-primary font-bold">Price: ${service.price}</p>
-              <ArrowRight className="text-primary w-6 h-6" />
+              <Link href={`/service/${service._id}`}>
+                <ArrowRight className="text-primary w-6 h-6" />
+              </Link>
             </div>
           </Card>
         ))}
@@ -56,5 +60,3 @@ const Services = async () => {
 };
 
 export default Services;
-
-

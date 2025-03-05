@@ -2,7 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
-
+.overlay-bg{
+  background: rgb(0,0,0);
+background: linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(0,0,0,0.8156512605042017) 0%, rgba(39,39,43,0.5803571428571428) 100%);
+}
 
 @layer base {
   :root {
