@@ -13,7 +13,6 @@ const Banner = () => {
           alt="Banner Background"
           layout="fill"
           objectFit="cover"
-          className="opacity-50" // Add opacity to the background image
         />
       </div>
 

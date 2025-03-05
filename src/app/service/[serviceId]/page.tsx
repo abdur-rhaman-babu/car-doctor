@@ -46,7 +46,7 @@ const ServiceDetails = async ({ params }: ServiceDetailsProps) => {
       <section className="flex justify-center mt-2 w-full">
         <figure className="relative">
           <Image src={detailsBanner} width={1400} height={300} alt="banner" />
-          <div className="overlay-bg absolute h-full w-full top-0 flex items-center justify-center">
+          <div className="bg-black bg-opacity-50 absolute h-full w-full top-0 flex items-center justify-center">
             <h1 className="text-white font-bold lg:text-4xl text-2xl">
               Service Details
             </h1>
