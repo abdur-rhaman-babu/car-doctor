@@ -4,6 +4,7 @@ import SectionTitle from "./SectionTitle";
 import { Card } from "@/components/ui/card";
 import dbConnect, { collectionNameObj } from "@/lib/dbConnect";
 import Link from "next/link";
+import { Button } from "@/components/ui/button";
 
 interface Service {
   _id: string;
@@ -26,7 +27,7 @@ const Services = async () => {
   const services = await getServices();
 
   return (
-    <section>
+    <section className="lg:pt-16">
       <SectionTitle
         title="Service"
         subTitle="Our Service Area"
@@ -54,7 +55,11 @@ const Services = async () => {
             </div>
           </Card>
         ))}
+        
       </div>
+      <div className="flex justify-center my-8">
+        <Button variant='primary'>More Services</Button>
+        </div>
     </section>
   );
 };
